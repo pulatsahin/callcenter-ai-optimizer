@@ -1,0 +1,84 @@
+
+# ==========================================
+# CallCenter AI Optimizer - .gitignore
+# ==========================================
+
+# Python Virtual Environment
+.venv/
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python Build Files
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Environment Variables / Secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Testing / Coverage
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.mypy_cache/
+.ruff_cache/
+
+# SQLite Database
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+
+# ChromaDB Vector Database
+data/chroma_db/
+chroma/
+chroma_db/
+
+# Logs
+*.log
+logs/
+
+# Generated Reports
+reports/
+outputs/
+
+# Temporary Files
+tmp/
+temp/
+*.tmp
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# Operating System
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Streamlit Secrets
+.streamlit/secrets.toml
+
+# Local Model Files
+*.gguf
+*.safetensors
+*.bin

@@ -1,0 +1,30 @@
+
+# Agentic AI
+langchain
+langchain-ollama
+langgraph
+langchain-mcp-adapters
+
+# Model Context Protocol
+mcp
+
+# RAG
+chromadb
+langchain-chroma
+pypdf
+
+# Data Analysis
+pandas
+numpy
+openpyxl
+
+# Dashboard
+streamlit
+plotly
+
+# Configuration
+python-dotenv
+pydantic
+
+# Testing
+pytest
