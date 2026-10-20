@@ -1,72 +1,34 @@
 
 import asyncio
-import os
-import sys
 
-from dotenv import load_dotenv
-from langchain.agents import create_agent
-from langchain_ollama import ChatOllama
-from langchain_mcp_adapters.client import MultiServerMCPClient
+from agents.graph import create_callcenter_agent
 
 
-load_dotenv()
-
-
-SYSTEM_PROMPT = """
-Sen CallCenter AI Optimizer isimli bir outbound
-kampanya analiz asistanisin.
-
-Gorevlerin:
-- Kampanya verilerini MCP araclariyla sorgulamak.
-- Kapasite hesaplamalarini Python araclarina yaptirmak.
-- Kullanici isterse alternatif port senaryolarini
-  karsilastirmak.
-- Sonuclari Turkce ve anlasilir sekilde aciklamak.
-
-Kurallar:
-- Kampanya verilerini uydurma.
-- Sayisal hesaplamalari kendin yapma.
-- Gerekli oldugunda MCP araclarini kullan.
-- Hesaplama varsayimlarini belirt.
-- Port degisikligi yaptigini iddia etme.
-- Hata alirsan kullaniciya acikla.
-"""
+THREAD_ID = "callcenter-session-001"
 
 
 async def main():
-    client = MultiServerMCPClient(
-        {
-            "callcenter": {
-                "transport": "stdio",
-                "command": sys.executable,
-                "args": ["-m", "mcp_server.server"],
-            }
-        }
-    )
+    agent, tools = await create_callcenter_agent()
 
-    tools = await client.get_tools()
+    print("\n=== CALLCENTER AI OPTIMIZER ===")
+    print("Model: Qwen3.5:4b")
+    print("Hafiza: LangGraph InMemorySaver")
+    print("Thread ID:", THREAD_ID)
 
-    print("Kullanilabilir MCP araclari:")
+    print("\nMCP Araclari:")
     for tool in tools:
         print("-", tool.name)
 
-    model = ChatOllama(
-        model=os.getenv("OLLAMA_MODEL", "qwen3.5:4b"),
-        base_url=os.getenv(
-            "OLLAMA_BASE_URL",
-            "http://localhost:11434"
-        ),
-        temperature=0,
-    )
+    print("\nCikmak icin 'exit' yazin.\n")
 
-    agent = create_agent(
-        model=model,
-        tools=tools,
-        system_prompt=SYSTEM_PROMPT,
-    )
+    config = {
+        "configurable": {
+            "thread_id": THREAD_ID
+        },
+        "recursion_limit": 20,
+    }
 
-    print("\nCallCenter AI Optimizer hazir.")
-    print("Cikmak icin 'exit' yazin.\n")
+    previous_message_count = 0
 
     while True:
         question = input("Soru: ").strip()
@@ -78,29 +40,49 @@ async def main():
             continue
 
         try:
-            result = await agent.ainvoke({
-                "messages": [
-                    {"role": "user", "content": question}
-                ]
-            })
+            result = await agent.ainvoke(
+                {
+                    "messages": [
+                        {
+                            "role": "user",
+                            "content": question,
+                        }
+                    ]
+                },
+                config=config,
+            )
 
-            for message in result["messages"]:
+            # Son soruya ait arac cagrilarini goster.
+            # Checkpointer onceki mesajlari da dondurur.
+            messages = result["messages"]
+            previous_message_count = len(messages)
+
+            for message in messages[previous_message_count:]:
                 if getattr(message, "tool_calls", None):
                     for call in message.tool_calls:
                         print(
-                            "\n[TOOL CALL]",
+                            "[MCP TOOL CALL]",
                             call["name"],
-                            call["args"]
-                        )
+                            call["args"],
+                            )
 
-            final_message = result["messages"][-1]
-            print("\nAgent:", final_message.content, "\n")
+            final_message = messages[-1]
+
+            content = final_message.content
+
+            if isinstance(content, str):
+                print("\nAgent:", content)
+            else:
+                print("\nAgent:", str(content))
+
+            print()
 
         except Exception as exc:
             print(
-                "\nAgent hatasi:",
+                "\nHata:",
                 type(exc).__name__,
-                str(exc)
+                str(exc),
+                "\n",
             )
 
 
