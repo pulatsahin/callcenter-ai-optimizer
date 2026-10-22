@@ -1,0 +1,27 @@
+
+{
+  "year": 2026,
+  "country": "TR",
+  "timezone": "Europe/Istanbul",
+  "full_days": {
+    "2026-01-01": "Yilbasi",
+    "2026-03-20": "Ramazan Bayrami 1",
+    "2026-03-21": "Ramazan Bayrami 2",
+    "2026-03-22": "Ramazan Bayrami 3",
+    "2026-04-23": "23 Nisan",
+    "2026-05-01": "Emek ve Dayanisma Gunu",
+    "2026-05-19": "19 Mayis",
+    "2026-05-27": "Kurban Bayrami 1",
+    "2026-05-28": "Kurban Bayrami 2",
+    "2026-05-29": "Kurban Bayrami 3",
+    "2026-05-30": "Kurban Bayrami 4",
+    "2026-07-15": "15 Temmuz",
+    "2026-08-30": "30 Agustos",
+    "2026-10-29": "Cumhuriyet Bayrami"
+  },
+  "half_days": {
+    "2026-03-19": "13:00",
+    "2026-05-26": "13:00",
+    "2026-10-28": "13:00"
+  }
+}

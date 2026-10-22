@@ -28,3 +28,10 @@ pydantic
 
 # Testing
 pytest
+
+# LLMs
+langgraph-checkpoint-sqlite
+langchain-text-splitters
+
+# Timezone data
+tzdata

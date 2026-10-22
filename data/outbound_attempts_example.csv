@@ -1,0 +1,5 @@
+campaign_id,attempt_id,timestamp,disposition,duration_seconds,port_id
+101,attempt-001,2026-10-26T09:00:00+03:00,ANSWERED,20,p1
+101,attempt-002,2026-10-26T09:01:00+03:00,NO_ANSWER,30,p2
+101,attempt-003,2026-10-26T09:02:00+03:00,BUSY,10,p1
+102,attempt-004,2026-10-26T09:03:00+03:00,FAILED,8,p3

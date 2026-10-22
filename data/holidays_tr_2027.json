@@ -1,0 +1,26 @@
+
+{
+  "year": 2027,
+  "country": "TR",
+  "timezone": "Europe/Istanbul",
+  "full_days": {
+    "2027-01-01": "Yilbasi",
+    "2027-03-09": "Ramazan Bayrami 1",
+    "2027-03-10": "Ramazan Bayrami 2",
+    "2027-03-11": "Ramazan Bayrami 3",
+    "2027-04-23": "23 Nisan",
+    "2027-05-01": "Emek ve Dayanisma Gunu",
+    "2027-05-16": "Kurban Bayrami 1",
+    "2027-05-17": "Kurban Bayrami 2",
+    "2027-05-18": "Kurban Bayrami 3",
+    "2027-05-19": "Kurban Bayrami 4 / 19 Mayis",
+    "2027-07-15": "15 Temmuz",
+    "2027-08-30": "30 Agustos",
+    "2027-10-29": "Cumhuriyet Bayrami"
+  },
+  "half_days": {
+    "2027-03-08": "13:00",
+    "2027-05-15": "13:00",
+    "2027-10-28": "13:00"
+  }
+}
