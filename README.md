@@ -18,9 +18,8 @@
 9. [Normal ve debug modu](#9-normal-ve-debug-modu)
 10. [Karşılaşılan sorunlar ve çözümler](#10-karşılaşılan-sorunlar-ve-çözümler)
 11. [Testler ve kabul kriterleri](#11-testler-ve-kabul-kriterleri)
-12. [Değerlendirme kriterleriyle eşleştirme](#12-değerlendirme-kriterleriyle-eşleştirme)
-13. [Değerlendirici demo senaryosu](#13-değerlendirici-demo-senaryosu)
-14. [Sınırlamalar, güvenlik ve sonraki sürüm](#14-sınırlamalar-güvenlik-ve-sonraki-sürüm)
+12. [Demo senaryosu](#13-değerlendirici-demo-senaryosu)
+13. [Sınırlamalar, güvenlik ve sonraki sürüm](#14-sınırlamalar-güvenlik-ve-sonraki-sürüm)
 
 ---
 
@@ -146,7 +145,7 @@ callcenter-ai-optimizer/
 ├── requirements.txt                 # Python paket bağımlılıkları
 ├── .env                             # Yerel yapılandırma ve gizli ayarlar
 ├── .gitignore                       # Git'e eklenmemesi gereken dosyalar
-├── README.md                        # Bu kullanım ve değerlendirme rehberi
+├── README.md                        # Bu kullanım ve rehber
 │
 ├── agents/
 │   ├── graph.py                     # LangGraph Agent kurulumu ve araç bağlama
@@ -505,13 +504,13 @@ python -m pytest -v
 - [x] Tüm pytest testleri — kullanıcı ortamında PASS.
 - [x] Dashboard dört ana ekran — kullanıcı ortamında PASS.
 - [x] AI Agent yanıt üretimi — kullanıcı ortamında PASS.
-- [ ] Değerlendirme tesliminde MCP debug ekran görüntüsü eklendi.
-- [ ] Değerlendirme tesliminde RAG debug ekran görüntüsü eklendi.
-- [ ] Değerlendirme tesliminde aynı thread / yeni thread hafıza testlerinin ekran görüntüleri eklendi.
+- [ ] MCP debug ekran görüntüsü eklendi.
+- [ ] RAG debug ekran görüntüsü eklendi.
+- [ ] Aynı thread / yeni thread hafıza testlerinin ekran görüntüleri eklendi.
 
 **Dikkat:** İlk dört satır kullanıcı tarafından bildirilen son test sonuçlarıdır. Bu README’ye genel dashboard, kampanya analizi, AI yanıtı, terminal açılışı, CSV yükleme ve sapma analizi görüntüleri eklenmiştir. MCP/RAG debug çağrıları ve hafıza devamlılığına ait ayrı kanıt görüntüleri henüz sağlanmamıştır.
 
-## 12. Değerlendirici demo senaryosu
+## 12. Demo senaryosu
 
 **Önerilen 5–10 dakikalık akış:**
 
