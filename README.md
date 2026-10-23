@@ -511,21 +511,7 @@ python -m pytest -v
 
 **Dikkat:** İlk dört satır kullanıcı tarafından bildirilen son test sonuçlarıdır. Bu README’ye genel dashboard, kampanya analizi, AI yanıtı, terminal açılışı, CSV yükleme ve sapma analizi görüntüleri eklenmiştir. MCP/RAG debug çağrıları ve hafıza devamlılığına ait ayrı kanıt görüntüleri henüz sağlanmamıştır.
 
-## 12. Değerlendirme kriterleriyle eşleştirme
-
-Proje değerlendirmesinde kullanılan beş kriter **her biri %20** ağırlıkla ele alınmıştır:
-
-| Kriter | Projedeki karşılığı | Gösterilecek kanıt |
-|---|---|---|
-| **Problem tanımı ve gerçek dünyaya uygunluk (%20)** | Genesys Engage outbound port, bitiş ve retry problemi | 7.000/5/20 saniye örneği; operasyon açıklaması |
-| **Agentic mimari ve eğitim yaklaşımları (%20)** | LangGraph, MCP, RAG, Ollama, checkpoint hafızası | MCP/RAG debug izleri; thread testi; fine-tuning yapılmadığı beyanı |
-| **İşlevsellik ve çıktı kalitesi (%20)** | Dört ekran, CSV analizi, retry, optimizasyon, AI yorumu | Çalışan demo, karşılaştırmalı hesap ve grafikler |
-| **Kod kalitesi ve teknik uygulama (%20)** | Modüler servisler, doğrulamalar, pytest | Test çıktıları, dosya ağacı, ayrık servisler |
-| **Dokümantasyon ve teslim eksiksizliği (%20)** | README, kurulum, test promptları, demo ve sınırlar | Bu README, örnek CSV, final kontrol listesi |
-
-Bu eşleştirme **puan garantisi** değil, değerlendiricinin gereksinimleri izlemesini kolaylaştıran kanıt haritasıdır.
-
-## 13. Değerlendirici demo senaryosu
+## 12. Değerlendirici demo senaryosu
 
 **Önerilen 5–10 dakikalık akış:**
 
@@ -541,7 +527,7 @@ Bu eşleştirme **puan garantisi** değil, değerlendiricinin gereksinimleri izl
 
 **Ek kanıt önerisi:** Mevcut altı uygulama görüntüsüne ek olarak MCP tool call/result, RAG retrieval, birleşik araç akışı, thread devamlılığı ve pytest PASS çıktılarının ekran görüntülerini `screenshots/` altında saklayın. Gerçek müşteri verilerini görüntülere dahil etmeyin.
 
-## 14. Sınırlamalar, güvenlik ve sonraki sürüm
+## 13. Sınırlamalar, güvenlik ve sonraki sürüm
 
 - **Canlı Genesys Engage entegrasyonu yoktur.** CSV/SQLite ve sentetik örneklerle karar destek yapılır.
 - Sistem kampanya portlarını veya dialer ayarlarını otomatik değiştirmez.
